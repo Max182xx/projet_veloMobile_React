@@ -1,0 +1,81 @@
+/* Code imbriqué (nested) */
+header {
+  nav {
+    padding: 10px;
+    font-size: calc(0.5em + 1.5vw); // Permet de rendre la police réactive à la taille de l'écran.
+    z-index: 1; // Détermine l'ordre de superposition.
+
+    ul {
+      /* -----------Style du menu de la nav bar----------- */
+      a {
+        text-decoration: none;
+        color: #cdcccc;
+
+        &:hover {
+          color: #005cfa;
+          background-color: transparent;
+          border-radius: 4px;
+          border: 2px solid rgb(255, 55, 55);
+          padding: 6px;
+        }
+      }
+    }
+  }
+}
+
+#icons {
+  cursor: pointer;
+  position: relative; /* Force l'icone à apparaître */
+  z-index: 2; /* Le menu burger apparaît au-dessus de l'image */
+}
+
+/* -----------Le menu burger apparait quand la largeur d'un écran est inférieur à 800px-----------*/
+@media (max-width: 800px) {
+  #icons {
+    cursor: pointer;
+    display: block;
+    font-size: 2em;
+    padding: 10px;
+  }
+  // Changement d'état au clic
+  #icons::before {
+    content: "\2631"; // Icone menu burger 
+  }
+  .active #icons::before {
+    content: "\2715"; // Icone X
+    display: block;
+  }
+
+      /* -----------Style du menu burger ouvert de la nav bar ----------- */
+  nav {
+    ul {
+      position: fixed;
+      left: -100%;
+      top: 40px;
+      color: black;
+      flex-direction: column;
+      background: rgb(160, 9, 9);
+      width: 90% !important;
+      max-width: 500px !important;
+      text-align: right;
+      transition: 1s;
+      border-radius: 1em;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      li {
+        padding: 10px 0;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+  nav li:hover {
+    background: transparent;
+  }
+  nav.active ul {
+    left: 0;
+    margin-left: 1em;
+  }
+}

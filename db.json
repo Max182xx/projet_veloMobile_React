@@ -1,0 +1,25 @@
+{
+  "velosMobiles": [
+    {
+      "id": "1",
+      "model": "lvf2",
+      "description": "Le vélo mobile français qui a fait ses preuves",
+      "weight": "32",
+      "photo": "vmrural.jpeg"
+    },
+    {
+      "id": "6cb8",
+      "model": "Max12",
+      "description": "toto",
+      "weight": "12",
+      "photo": "vm2.png"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "login": "root",
+      "pwd": "root"
+    }
+  ]
+}
