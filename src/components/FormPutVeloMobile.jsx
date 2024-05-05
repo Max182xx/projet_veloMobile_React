@@ -13,14 +13,14 @@ const FormPutVeloMobile = ({ veloMobile, onUpdate }) => {
     photo: false,
   });
 
-// pour le changement d'état lorsqu'on change les informations de chaque champ du formulaire de mise à jour du velo
+/* Pour le changement d'état lorsqu'on change les informations de chaque champ du formulaire de mise à jour du velo */
   const handleInputChange = (event) => {
     const {name, value} = event.target;
     let isValid = true;
 
-    // Effacer l'état de validation précédent
+/* Effacer l'état de validation précédent */
     event.target.classList.remove("is-invalid", "is-valid");
-
+/* Logique pour la validation d'un formulaire avec les contrainte dans ValidateData */
     if (ValidateData.checkCharacter(value) || ValidateData.checkIfEmpty(value)  || (name === "weight" && !ValidateData.checkWeight(value))) {
       isValid = false;
       setErrorMessage(`Le champ ${name} est vide ou contient un caractère non autorisé.`);
@@ -40,10 +40,10 @@ const FormPutVeloMobile = ({ veloMobile, onUpdate }) => {
     } else {
       isValid = true;
       event.target.classList.add("is-valid");
-      // Réinitialiser le message d'erreur lorsque l'entrée est valide.
+/* Réinitialiser le message d'erreur lorsque l'entrée est valide.*/
       setErrorMessage("");
     }
-    // Mettre à jour l'état de validité du formulaire.
+/* Mettre à jour l'état de validité du formulaire. */
     setIsFormValid(isValid);
   };
 
@@ -51,14 +51,10 @@ const FormPutVeloMobile = ({ veloMobile, onUpdate }) => {
     return emptyFields[fieldName] ? "input-error" : "";
   };
 
+/* Fonction pour modifier un véloMobile */
   const handleSubmitFormPutVeloMobile = (event) => {
     event.preventDefault();
-
-    //if (!isFormValid) {
-    //  setErrorMessage("Veuillez corriger les erreurs dans le formulaire.");
-    //  return;
-    //}
-
+/* New FormData cible les données à modifier  */
     const formData = new FormData(event.target);
     const newVeloMobile = {
       id: veloMobile.id,
@@ -68,7 +64,7 @@ const FormPutVeloMobile = ({ veloMobile, onUpdate }) => {
       photo: formData.get("photo"),
     };
 
-// création du vélo-mobile dans le serveur
+/* Mets à jour le véloMobile dans le serveur (fichier JSON) */
     RemoteData.putVeloMobile(newVeloMobile)
         .then((data) => {
           setConfirmUpdate(`Le modèle ${newVeloMobile.model} a été bien modifié.`);
@@ -76,9 +72,9 @@ const FormPutVeloMobile = ({ veloMobile, onUpdate }) => {
             setConfirmUpdate("");
           }, 4000);
           onUpdate(data);
-          // Réinitialiser l'état de validation pour la soumission
+/* Réinitialiser l'état de validation pour la soumission */ 
           setIsFormValid(false);
-          // Réinitialiser la ClassList des champs de formulaire
+/* Réinitialiser la ClassList des champs de formulaire */
           const formElements = event.target.elements;
           for (let i = 0; i < formElements.length; i++) {
             formElements[i].classList.remove("is-invalid", "is-valid");
@@ -91,7 +87,7 @@ const FormPutVeloMobile = ({ veloMobile, onUpdate }) => {
         });
   };
 
-
+/* Formulaire modifier géré avec le props VeloMobile et FormPutVeloMobile pour la modal et l'affichage */
   return (
       <form onSubmit={handleSubmitFormPutVeloMobile} className="needs-validation" noValidate>
         <div className="mb-3">

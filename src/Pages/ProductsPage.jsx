@@ -35,7 +35,7 @@ const ProductsPage = () => {
         )
     );
   };
-  // Je ne sais pas ?
+  /* Retour visuel sur les champs du formulaire qui contiennent des erreurs  */
   const getInputClass = (fieldName) => {
     return emptyFields[fieldName] ? "input-error" : "";
   }; 
@@ -79,7 +79,7 @@ const ProductsPage = () => {
 
 /* Effacer l'état de validation précédent */
     event.target.classList.remove("is-invalid", "is-valid");
-
+/* Logique pour la validation d'un formulaire avec les contraintes dans ValidateData */
     if (ValidateData.checkIfEmpty(value) || ValidateData.checkCharacter(value) || (name === "weight" && !ValidateData.checkWeight(value))) {
       isValid = false;
       setErrorMessage(`Le champ ${name} est vide ou contient un caractère non autorisé.`);
@@ -102,7 +102,7 @@ const ProductsPage = () => {
 /* Réinitialiser le message d'erreur lorsque l'entrée est valide.*/
       setErrorMessage("");
     }
-      /* Met à jour l'état emptyFields pour refléter la validité de chaque champ. */
+/* Met à jour l'état emptyFields pour refléter la validité de chaque champ. */
       Object.keys(emptyFields).forEach((fieldName) => {
           if (fieldName === name) {
               emptyFields[fieldName] = isValid
@@ -173,7 +173,7 @@ const ProductsPage = () => {
 
   return (
 
-/* Formulaire modal pour créer un véloMobile */
+/* Formulaire modal véloMobile */
       <>
         <section className="card p-4 mt-4 bg-light">
           <h2 className="card-header mb-4 border-danger rounded-lg text-primary">
@@ -272,7 +272,7 @@ const ProductsPage = () => {
           )}
 
           {errorMsg && <h3 className="text-danger"> {errorMsg}</h3>}
-{/* Affichage de la liste des véloMobiles et gestion de la suppréssion ou modification dans le componentsgit  VeloMobile */}
+{/* Affichage de la liste des véloMobiles et gestion de la suppréssion ou modification dans le components VeloMobile */}
           {velosMobiles &&
               velosMobiles.map((veloMobile) => (
                   <VeloMobile

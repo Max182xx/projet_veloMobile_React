@@ -2,7 +2,7 @@
   "velosMobiles": [
     {
       "id": "1",
-      "model": "lvf2",
+      "model": "lvf1",
       "description": "Le vélo mobile français qui a fait ses preuves",
       "weight": "32",
       "photo": "vmrural.jpeg"
@@ -13,6 +13,20 @@
       "description": "toto",
       "weight": "12",
       "photo": "vm2.png"
+    },
+    {
+      "id": "16c0",
+      "model": "az",
+      "description": "az",
+      "weight": "12",
+      "photo": "vmrural.jpeg"
+    },
+    {
+      "id": "0f5f",
+      "model": "Maxime",
+      "description": "te",
+      "weight": "12",
+      "photo": "vmrural.jpeg"
     }
   ],
   "users": [

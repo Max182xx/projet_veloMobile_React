@@ -41,6 +41,7 @@ const openModal = () => {
                   Supprimer
                 </button>
    <div>
+{/* State OpenModal et props FormPutVeloMobile qui appel le formulaire modifier */}
       <button className="btn btn-warning mt-2" onClick={openModal}>Modifier</button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
          <FormPutVeloMobile veloMobile={props.veloMobile} onUpdate={props.onUpdate}/>

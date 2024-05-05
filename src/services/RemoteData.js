@@ -8,6 +8,8 @@ export default class RemoteData {
    *
    * @returns Promise<{}[]>
    */
+
+/* Charge la liste des véloMobiles  */
   static loadVelosMobiles() {
     return fetch(RemoteData.url + "velosMobiles")
       .then((response) => {
@@ -95,7 +97,8 @@ export default class RemoteData {
     });
   }
   /**
-   *
+   * Execute une requête HTTP avec le verbe POST à L'API 
+   * pour créer un VéloMobile dans le fichier JSON
    * @param {*} newVeloMobile
    * @returns
    */
@@ -106,6 +109,7 @@ export default class RemoteData {
         "Content-Type": "application/json",
       },
       method: "POST",
+    /* Convertit l'objet en un chaine JSON */
       body: JSON.stringify(newVeloMobile),
     })
       .then((response) => {
@@ -119,6 +123,9 @@ export default class RemoteData {
         return data;
       });
   }
+
+  /* Execute une requête HTTP avec le verbe PuT à L'API 
+    pour modifier un VéloMobile dans le fichier JSON */
   static putVeloMobile(updatedVeloMobile) {
     return fetch(`${RemoteData.url}velosMobiles/${updatedVeloMobile.id}`, {
       headers: {
@@ -140,6 +147,8 @@ export default class RemoteData {
       });
   }
 
+  /* Execute une requête HTTP avec le verbe POST à L'API 
+   * pour créer un nouvel abonné dans le fichier JSON */
   static postSubscriber(newSubscriber) {
     return fetch(`${RemoteData.url}subscribers/`, {
       headers: {
