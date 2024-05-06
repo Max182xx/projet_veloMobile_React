@@ -6,7 +6,7 @@ header {
     z-index: 1; // Détermine l'ordre de superposition.
 
     ul {
-      /* -----------Style du menu de la nav bar----------- */
+      /* -----------Style du menu de la nav barre----------- */
       a {
         text-decoration: none;
         color: #cdcccc;
@@ -25,14 +25,13 @@ header {
 
 #icons {
   cursor: pointer;
-  position: relative; /* Force l'icone à apparaître */
+  position: relative; /* Force l'icone X à apparaître */
   z-index: 2; /* Le menu burger apparaît au-dessus de l'image */
 }
 
 /* -----------Le menu burger apparait quand la largeur d'un écran est inférieur à 800px-----------*/
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   #icons {
-    cursor: pointer;
     display: block;
     font-size: 2em;
     padding: 10px;
@@ -42,8 +41,8 @@ header {
     content: "\2631"; // Icone menu burger 
   }
   .active #icons::before {
-    content: "\2715"; // Icone X
-    display: block;
+  content: "\2715"; // Icone X
+  display: block;
   }
 
       /* -----------Style du menu burger ouvert de la nav bar ----------- */
@@ -55,8 +54,7 @@ header {
       color: black;
       flex-direction: column;
       background: rgb(160, 9, 9);
-      width: 90% !important;
-      max-width: 500px !important;
+      width: 95% !important;
       text-align: right;
       transition: 1s;
       border-radius: 1em;

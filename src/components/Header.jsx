@@ -141,7 +141,7 @@ const Header = ({ isLoggedIn, toggleMode, darkMode }) => {
     </li>
 
             </ul>
-            
+            {/* Icons de mon hearder.scss */}
             <div id="icons" onClick={openCloseMenu}></div>
           </nav>
         </div>
