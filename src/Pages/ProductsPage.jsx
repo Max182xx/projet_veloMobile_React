@@ -27,7 +27,8 @@ const ProductsPage = () => {
     photo: false,
   });
 
-/* Mise à jour de l'élément veloMobiles via l'id */
+/* Mise à jour de l'élément veloMobiles via l'id quand il est modifié dans FormPutVeloMobile et 
+  envoyé dans RemoteData */
   const handleUpdateVeloMobile = (updatedVeloMobile) => {
     setVelosMobiles(
         velosMobiles.map((vm) =>
@@ -126,10 +127,12 @@ const ProductsPage = () => {
       }
       setIsFormValid(isFormValid);
   };
-/* handleSubmitFormPostVeloMobile création de l'événement créer un produit */
+/* handleSubmitFormPostVeloMobile création de l'événement créer un veloMobile */
   const handleSubmitFormPostVeloMobile = (event) => {
     event.preventDefault();
     console.log(`Formulaire d'ajout soumis`);
+/* formData représente les données du formulaire 
+  event.target référence à l'objet qui a envoyé l'événement */
     const formData = new FormData(event.target);
 /* Création d'un nouvel objet newVeloMobile avec les données collectées du formulaire*/
     const newVeloMobile = {

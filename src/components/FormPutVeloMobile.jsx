@@ -84,6 +84,9 @@ const FormPutVeloMobile = ({ veloMobile, onUpdate }) => {
         .catch((error) => {
           console.error("Error submitting form:", error);
           setErrorMessage("Une erreur s'est produite lors de la soumission du formulaire.");
+          setTimeout( () => {
+            setErrorMessage("");
+          }, 4000);
         });
   };
 

@@ -29,7 +29,7 @@ const openModal = () => {
           <div className="card-body">
             <h3 className="card-title">{props.veloMobile.model}</h3>
             <p className="card-text">{props.veloMobile.description}</p>
-            <p className="card-text">{props.veloMobile.weight} kg</p>
+            <p className="card-text">{props.veloMobile.weight} Kg</p>
             {isLoggedIn ? (
               <>
                 <button
